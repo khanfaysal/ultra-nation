@@ -4,7 +4,8 @@ const Country = (props) => {
     const{name,alpha3Code,population,region,flag} = props.country;
     const flagStyle = {height: '50px'};
     const countryStyle = {border: '1px solid black', margin: '20px', padding: '20px' };
-    const handleAddCountry = () =>{console.log('added');}
+    const handleAddCountry = props.handleAddCountry;
+
     return (
         <div style = {countryStyle}>
             <img style = {flagStyle} src={flag} alt=""/>
@@ -12,7 +13,7 @@ const Country = (props) => {
             <p>Country Name Code:&nbsp;&nbsp;{alpha3Code}</p>
             <p>Population:&nbsp;&nbsp;{population}</p>
             <p><small>Region:&nbsp;{region}</small></p>
-            <button onClick = {handleAddCountry}>Add Country</button>
+            <button onClick = {() =>handleAddCountry(props.country)}>Add Country</button>
         </div>
     );
 };
